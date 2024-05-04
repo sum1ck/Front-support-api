@@ -24,11 +24,6 @@ async def get_user_requests_by_token(
     return {"requests": requests[offset:offset + limit], "requestsCount": total_requests}
 
 
-
-
-
-
-
 @router.get("/requests/")
 async def get_requests(
         current_user_data: Request = Depends(get_requests),
@@ -43,8 +38,6 @@ async def get_requests(
         requests = [req for req in requests if req['location'] == location]
         total_requests = len(requests)
     return {"count": total_requests, "requests": requests[offset:offset + limit]}
-
-
 
 
 @router.get("/requests/{request_id}")
